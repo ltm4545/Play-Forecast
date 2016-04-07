@@ -1,29 +1,21 @@
-@*
- * This template takes a single argument, a String containing a
- * message to display.
- *@
-@(message: String)
+@(weathers: List[weather], weatherForm: Form[weather])
 
-@*
- * Call the the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
-@main("Welcome to Play") {
+@import helper._
 
-    @*
-     * Get an `Html` object by calling the built-in Play welcome
-     * template and passing a `String` message.
-     *@
-    @*play20.welcome(message, style = "Java")*@
-    <li> Please enter a city code </li>
-    <form action = "@routes.HomeController.index" method = "post">
-        <input type = "text" name = "name"/>
-
-        <button> Search </button>
-
-    </form>
+@main("Weather Application") {
 
 
 
-    }
+  CityName:<br>
+  <form action = @routes.Applications.getWeatherInfo()" method = "get" >
+    <input type = "text" name = "input"/><br>
+    <input type = "submit" value = "test parameter"/>
+
+  </form>
+
+
+
+
+<a href="@routes.Applications.getWeatherInfo()">Weather San Diego !</a>
+}
+
